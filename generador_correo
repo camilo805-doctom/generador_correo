@@ -1,0 +1,67 @@
+
+import random
+
+import re
+
+# Lista de dominios disponibles para los correos electrónicos
+
+Dominios=["@gmail.com", "@hotmail.com", "@HubSpot.com","@apple.com"]
+
+# Expresión regular que requiere al menos un número en el dominio
+
+nombre=r".*[0-9]+.*" 
+
+while True:
+
+    # Solicitar al usuario que introduzca un nombre para su correo
+
+    user=input("Coloque un dominio para su correo (debe contener un numero): ")
+
+    # Verificar si el dominio introducido cumple con la expresión regular
+
+    if re.match(nombre, user):
+
+        # Elegir un dominio aleatorio de la lista de dominios
+
+        correo=random.choice(Dominios)
+
+    else:
+
+        # Mostrar un mensaje de error y salir del bucle si la entrada no es válida
+
+        print("no es una entrada valida")
+
+        break
+
+    # Elegir un dominio aleatorio de la lista de dominios
+
+    dominio=random.choice(Dominios)
+
+    # Concatenar el dominio proporcionado por el usuario con el dominio aleatorio
+
+    correo_completo=f"{user}{dominio}"
+
+    # Mostrar el correo electrónico generado
+
+    print(f"correo generado: {correo_completo}")
+
+    # Preguntar al usuario si desea seguir generando correos electrónicos
+
+    nueva_entrada=str(input("¿Desea seguir generando correos?: "))
+
+    # Salir del bucle si la respuesta es "no"
+
+    if nueva_entrada.lower()=="no":
+
+        print("Te esperamos con una nueva entrada")
+
+        break
+
+    else:
+
+        # Continuar con la entrada si la respuesta es diferente de "no"
+
+        print("seguimos con la entrada")
+
+
+        user=input("Coloque un dominio para su correo (debe contener un numero): ")
